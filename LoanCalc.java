@@ -24,12 +24,13 @@ public class LoanCalc {
 		System.out.println((int) bisectionSolver(loan, rate, n, epsilon));
 		System.out.println("number of iterations: " + iterationCounter);
 	}
-
 	// Computes the ending balance of a loan, given the loan amount, the periodical
 	// interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	private static double endBalance(double loan, double rate, int n, double payment) {	
-		// Replace the following statement with your code
-		return 0;
+		for (int i=0; i<n; i++){
+			loan = (loan - payment)*((rate/100.0) +1);
+		}
+		return loan;
 	}
 	
 	// Uses sequential search to compute an approximation of the periodical payment
@@ -37,9 +38,21 @@ public class LoanCalc {
 	// Given: the sum of the loan, the periodical interest rate (as a percentage),
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
+
+	
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {
-		// Replace the following statement with your code
-		return 0;
+		Double increment = 0.0001;
+		iterationCounter = 0;
+		double payment = loan/n;
+		while (Math.abs(endBalance(loan, rate, n, payment)) >= epsilon) {
+			payment += increment;
+			iterationCounter++;
+			}
+
+		if (payment > loan) {
+		System.out.println("Use a smaller increment");
+		}
+		return payment;
     }
     
     // Uses bisection search to compute an approximation of the periodical payment 
@@ -47,8 +60,37 @@ public class LoanCalc {
 	// Given: the sum of the loan, the periodical interest rate (as a percentage),
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
+	/*
+	 double x = 16;
+double epsilon = 0.01, L = 1.0, H = x;
+double g = (L + H) / 2.0;
+int stepCounter = 0;
+while (Math.abs(g * g - x) >= epsilon) {
+if (g * g < x)
+L = g;
+else
+H = g;
+g = (L + H) / 2;
+stepCounter++;
+}
+System.out.println("Square root (approx.) = " + g);
+System.out.println("Number of iterations = " + stepCounter);
+}
+}
+	 */
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
-        // Replace the following statement with your code
-		return 0;
+        double low = 1, high = loan;
+		double g = (low + high) / 2.0;
+		iterationCounter = 0;
+		while (Math.abs(endBalance(loan, rate, n, g)) >= epsilon) {
+
+			if ( endBalance(loan, rate, n, g) > 0){
+				low = g;
+			}else{
+				high = g;}
+			g = (low + high) / 2;
+			iterationCounter++;
+	}
+		return g;
     }
 }
