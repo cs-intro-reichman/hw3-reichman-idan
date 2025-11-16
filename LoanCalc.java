@@ -44,7 +44,7 @@ public class LoanCalc {
 		Double increment = 0.0001;
 		iterationCounter = 0;
 		double payment = loan/n;
-		while (Math.abs(endBalance(loan, rate, n, payment)) >= epsilon) {
+		while (Math.abs(endBalance(loan, rate, n, payment)) > epsilon) {
 			payment += increment;
 			iterationCounter++;
 			}
@@ -91,6 +91,7 @@ System.out.println("Number of iterations = " + stepCounter);
 			g = (low + high) / 2;
 			iterationCounter++;
 	}
+		iterationCounter--;
 		return g;
     }
 }
