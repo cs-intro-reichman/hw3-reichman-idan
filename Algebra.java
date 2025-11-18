@@ -17,10 +17,10 @@ public class Algebra {
    		System.out.println(div(5,5));    // 5 / 5  
    		System.out.println(div(25,7));   // 25 / 7
    		System.out.println(mod(25,7));   // 25 % 7
-   		System.out.println(mod(120,6));  // 120 % 6  */
+   		System.out.println(mod(120,6));  // 120 % 6  
    		System.out.println(sqrt(36));
 		System.out.println(sqrt(7));
-   		System.out.println(sqrt(40)); 
+   		System.out.println(sqrt(40)); */
 	}  
 
 	// Returns x1 + x2

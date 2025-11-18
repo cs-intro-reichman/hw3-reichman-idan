@@ -28,7 +28,7 @@ public class LoanCalc {
 	// interest rate (as a percentage), the number of periods (n), and the periodical payment.
 	private static double endBalance(double loan, double rate, int n, double payment) {	
 		for (int i=0; i<n; i++){
-			loan = (loan - payment)*((rate/100.0) +1);
+			loan = loan * (1 + rate / 100.0) - payment;
 		}
 		return loan;
 	}
@@ -41,10 +41,10 @@ public class LoanCalc {
 
 	
     public static double bruteForceSolver(double loan, double rate, int n, double epsilon) {
-		Double increment = 0.0001;
+		Double increment = 0.001;
 		iterationCounter = 0;
-		double payment = loan/n;
-		while (Math.abs(endBalance(loan, rate, n, payment)) > epsilon) {
+		double payment = 0;
+		while (endBalance(loan, rate, n, payment) > epsilon) {
 			payment += increment;
 			iterationCounter++;
 			}
@@ -60,24 +60,7 @@ public class LoanCalc {
 	// Given: the sum of the loan, the periodical interest rate (as a percentage),
 	// the number of periods (n), and epsilon, the approximation's accuracy
 	// Side effect: modifies the class variable iterationCounter.
-	/*
-	 double x = 16;
-double epsilon = 0.01, L = 1.0, H = x;
-double g = (L + H) / 2.0;
-int stepCounter = 0;
-while (Math.abs(g * g - x) >= epsilon) {
-if (g * g < x)
-L = g;
-else
-H = g;
-g = (L + H) / 2;
-stepCounter++;
-}
-System.out.println("Square root (approx.) = " + g);
-System.out.println("Number of iterations = " + stepCounter);
-}
-}
-	 */
+
     public static double bisectionSolver(double loan, double rate, int n, double epsilon) {  
         double low = 1, high = loan;
 		double g = (low + high) / 2.0;
@@ -91,7 +74,6 @@ System.out.println("Number of iterations = " + stepCounter);
 			g = (low + high) / 2;
 			iterationCounter++;
 	}
-		iterationCounter--;
 		return g;
     }
 }
