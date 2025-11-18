@@ -33,9 +33,8 @@ public class Anagram {
 		str1 = preProcess(str1);
 		str2 = preProcess(str2);
 		String nstr2 = str2;
-		if (str1.length() != str2.length()) {
-        	return false;
-		}
+		//if (str1.length() != str2.length()) {
+        	//return false;}
 		for (int i = 0; i < str1.length(); i++) {
 			char c = str1.charAt(i);
 			int indexInStr2 = nstr2.indexOf(c);
@@ -46,17 +45,25 @@ public class Anagram {
 			nstr2 = nstr2.substring(0, indexInStr2) + nstr2.substring(indexInStr2 + 1);
 		}
 
-		return nstr2.isEmpty();
+		return nstr2.trim().isEmpty();
+
 	}
 	   
 	// Returns a preprocessed version of the given string: all the letter characters are converted
 	// to lower-case, and all the other characters are deleted, except for spaces, which are left
 	// as is. For example, the string "What? No way!" becomes "whatnoway"
 	public static String preProcess(String str) {
-		// Replace the following statement with your code
-		String clean = str.toLowerCase().replaceAll("[^a-z]", "");
-		return clean;
-	} 
+    String clean = "";
+    for (int i = 0; i < str.length(); i++) {
+        char c = str.charAt(i);
+
+        if ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || c == ' ') {
+            if (c >= 'A' && c <= 'Z') c = (char)(c - 'A' + 'a');
+            clean += c;
+        }
+    }
+    return clean;
+}
 	   
 	// Returns a random anagram of the given string. The random anagram consists of the same
 	// characters as the given string, re-arranged in a random order. 

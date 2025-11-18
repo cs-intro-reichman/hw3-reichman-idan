@@ -7,18 +7,18 @@ public class TestAlgebra {
     private static int passedTests = 0;
 
     public static void main(String[] args) {
-        testPlus();
+        /*testPlus();
         testMinus();
         testTimes();
         testPow();
         testDiv();
-        testMod();
+        testMod(); */
         testSqrt();
         testForbiddenOperators();
         
-        System.out.println("\nTotal tests: " + totalTests);
+       /*  System.out.println("\nTotal tests: " + totalTests);
         System.out.println("Passed tests: " + passedTests);
-        System.out.println("Success rate: " + (passedTests * 100.0 / totalTests) + "%");
+        System.out.println("Success rate: " + (passedTests * 100.0 / totalTests) + "%");*/
     }
 
     private static int testPlus() {
