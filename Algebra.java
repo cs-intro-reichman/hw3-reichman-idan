@@ -92,7 +92,6 @@ public class Algebra {
 	// Returns the integer part of x1 / x2 
 	public static int div(int x1, int x2) {
     if (x2 == 0) {
-        System.out.println("Error divided by 0 ");
 		return 0;
     }
 
@@ -131,7 +130,6 @@ public class Algebra {
 			return 1;
 		}
 		if (x<0){
-			System.out.println("Error");
 			return 0;
 		}
 		int num = 1;
