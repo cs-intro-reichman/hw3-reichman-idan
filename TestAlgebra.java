@@ -22,7 +22,7 @@ public class TestAlgebra {
     }
 
     private static int testPlus() {
-        System.out.println("\nTesting plus operations:");
+        //System.out.println("\nTesting plus operations:");
         totalTests += 6;
         
         boolean test1 = Algebra.plus(2, 3) == 5;
@@ -50,7 +50,7 @@ public class TestAlgebra {
     }
 
     private static int testMinus() {
-        System.out.println("\nTesting minus operations:");
+       // System.out.println("\nTesting minus operations:");
         totalTests += 6;
         
         boolean test1 = Algebra.minus(7, 2) == 5;
@@ -78,7 +78,7 @@ public class TestAlgebra {
     }
 
     private static int testTimes() {
-        System.out.println("\nTesting times operations:");
+       // System.out.println("\nTesting times operations:");
         totalTests += 6;
         
         boolean test1 = Algebra.times(3, 4) == 12;
@@ -106,7 +106,7 @@ public class TestAlgebra {
     }
 
     private static int testPow() {
-        System.out.println("\nTesting power operations:");
+        //System.out.println("\nTesting power operations:");
         totalTests += 6;
         
         boolean test1 = Algebra.pow(5, 3) == 125;
@@ -134,7 +134,7 @@ public class TestAlgebra {
     }
 
     private static int testDiv() {
-        System.out.println("\nTesting division operations:");
+       // System.out.println("\nTesting division operations:");
         totalTests += 6;
         
         boolean test1 = Algebra.div(12, 3) == 4;
@@ -162,7 +162,7 @@ public class TestAlgebra {
     }
 
     private static int testMod() {
-        System.out.println("\nTesting modulo operations:");
+       // System.out.println("\nTesting modulo operations:");
         totalTests += 6;
         
         boolean test1 = Algebra.mod(25, 7) == 4;
