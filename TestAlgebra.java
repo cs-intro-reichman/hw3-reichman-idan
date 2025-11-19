@@ -12,7 +12,7 @@ public class TestAlgebra {
         testTimes();
         testPow();
         testDiv();
-        testMod();
+        testMod(); 
         testSqrt();
         testForbiddenOperators();
         
